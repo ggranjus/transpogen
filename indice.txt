@@ -1,0 +1,5 @@
+Le cryptosystème qui a été utilisé pour produire cipher.txt est
+un système de transposition (par blocs de longueur 13).
+
+Notons qu'il y a 27 caractères possibles: [ A-Z]. chaque caractère
+compte!
