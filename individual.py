@@ -26,17 +26,17 @@ class Individual:
     def crossing(self, individual):
         cross = []
         if self.score >= individual.score:
-            for i in range(6):
-                cross.append(self.sequence[i])
-            for element in individual.sequence:
-                if cross.count(element) != 1:
-                    cross.append(element)
+            best = self
+            weak = individual
         else:
-            for i in range(6):
-                cross.append(individual.sequence[i])
-                for element in self.sequence:
-                    if cross.count(element) != 1:
-                        cross.append(element)
+            best = individual
+            weak = self
+        half = int(len(self.sequence)/2)
+        for i in range(half):
+            cross.append(best.sequence[i])
+        for element in weak.sequence:
+            if cross.count(element) != 1:
+                cross.append(element)
         child = Individual(len(self.sequence))
         child.sequence = cross
         child.mutation(0.7)
